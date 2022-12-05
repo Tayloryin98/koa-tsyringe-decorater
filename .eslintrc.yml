@@ -1,0 +1,135 @@
+env:
+  es2021: true
+  node: true
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+rules:
+  indent:
+    - error
+    - 4
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - warn
+    - single
+  semi:
+    - error
+    - never
+  prefer-const: warn
+  no-const-assign: error
+  no-var: error
+  no-new-object: warn
+  object-shorthand: warn
+  quote-props:
+    - warn
+    - as-needed
+  prefer-spread: warn
+  no-array-constructor: error
+  array-callback-return: error
+  prefer-template: warn
+  no-template-curly-in-string: warn
+  no-eval: warn
+  no-useless-escape: warn
+  func-style:
+    - warn
+    - declaration
+    - allowArrowFunctions: true
+  no-loop-func: error
+  prefer-rest-params: error
+  default-param-last: warn
+  no-new-func: error
+  space-before-function-paren:
+    - warn
+    - named: never
+      asyncArrow: always
+      anonymous: always
+  space-before-blocks: warn
+  prefer-arrow-callback: warn
+  arrow-spacing: warn
+  arrow-parens:
+    - warn
+    - as-needed
+  arrow-body-style:
+    - warn
+    - as-needed
+  no-confusing-arrow: warn
+  implicit-arrow-linebreak: warn
+  no-useless-constructor: warn
+  no-dupe-class-members: error
+  no-duplicate-imports: error
+  generator-star-spacing:
+    - warn
+    - after: true
+      before: false
+  dot-notation: warn
+  no-undef: error
+  one-var:
+    - warn
+    - never
+  no-multi-assign: warn
+  eqeqeq:
+    - warn
+    - smart
+  no-case-declarations: warn
+  no-unneeded-ternary: warn
+  no-mixed-operators: warn
+  no-else-return: warn
+  spaced-comment: error
+  eol-last: error
+  space-infix-ops: error
+  newline-per-chained-call:
+    - warn
+    - ignoreChainWithDepth: 3
+  no-whitespace-before-property: error
+  padded-blocks:
+    - error
+    - never
+  no-multiple-empty-lines:
+    - error
+    - max: 1
+  space-in-parens:
+    - warn
+    - never
+  array-bracket-spacing:
+    - warn
+    - never
+  object-curly-spacing:
+    - error
+    - always
+  max-len:
+    - warn
+    - code: 250
+      comments: 250
+      ignoreTrailingComments: true
+  block-spacing: warn
+  comma-spacing:
+    - error
+    - before: false
+      after: true
+  computed-property-spacing:
+    - error
+    - never
+  key-spacing:
+    - error
+    - beforeColon: false
+      afterColon: true
+  comma-dangle:
+    - error
+    - only-multiline
+  no-new-wrappers: error
+  id-length:
+    - warn
+    - max: 60
+      min: 1
+  camelcase:
+    - warn
+    - properties: never
+      ignoreDestructuring: true
