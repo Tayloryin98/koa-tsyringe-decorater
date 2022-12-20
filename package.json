@@ -17,7 +17,7 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^16.18.4",
     "chai": "^4.3.7",
-    "commitizen": "^4.2.5",
+    "commitizen": "^4.2.6",
     "cz-conventional-changelog": "^3.3.0",
     "mocha": "^10.1.0",
     "ts-node": "^10.9.1",
