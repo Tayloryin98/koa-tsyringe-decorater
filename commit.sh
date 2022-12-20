@@ -3,9 +3,9 @@
 set -e
 
 npm run build
-npm run changelog
-npm run changegiturl
 npm run commit
 npm version patch
+npm run changelog
+npm run changegiturl
 git push --tags
 git push
