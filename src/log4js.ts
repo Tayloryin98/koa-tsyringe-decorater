@@ -5,7 +5,7 @@ log4js.configure({
         out: { type: 'console' }, // 控制台输出
     },
     categories: {
-    // appenders:采用的appender,取appenders项,level:设置级别
+        // appenders:采用的appender,取appenders项,level:设置级别
 
         default: { appenders: ['out'], level: 'debug' },
 
@@ -17,13 +17,7 @@ log4js.configure({
     },
 })
 
-// debug日志
-const debugLog = log4js.getLogger('debug')
-// info日志
-const infoLog = log4js.getLogger('info')
-// err日志
-const errorLog = log4js.getLogger('err')
-// fatal日志
-const fatalLog = log4js.getLogger('fatal')
-
-export { debugLog, infoLog, errorLog, fatalLog }
+export const debugLog = log4js.getLogger('debug')
+export const infoLog = log4js.getLogger('info')
+export const errorLog = log4js.getLogger('err')
+export const fatalLog = log4js.getLogger('fatal')

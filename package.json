@@ -2,18 +2,20 @@
   "name": "template",
   "version": "1.0.2",
   "description": "",
-  "main": "lib/main.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node lib/cli.js",
+    "start": "node lib/cli.js api",
     "commit": "git add . && git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changegiturl": "replace 'https://gitlab.qiaonao.net:1022' 'https://gitlab.qiaonao.net' CHANGELOG.md"
   },
-  "author": "",
+  "author": "yindong",
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.4",
+    "@types/koa": "^2.13.6",
+    "@types/koa-router": "^7.4.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^16.18.4",
     "chai": "^4.3.7",
@@ -31,7 +33,14 @@
   "dependencies": {
     "commander": "^9.4.1",
     "conventional-changelog-cli": "^2.2.2",
+    "joi": "^17.9.2",
+    "koa": "^2.14.2",
+    "koa-body": "^6.0.1",
+    "koa-router": "^12.0.0",
     "log4js": "^6.7.1",
-    "replace": "^1.2.2"
+    "mongodb": "^5.5.0",
+    "reflect-metadata": "^0.1.13",
+    "replace": "^1.2.2",
+    "tsyringe": "^4.7.0"
   }
 }

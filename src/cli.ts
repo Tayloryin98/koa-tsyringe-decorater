@@ -1,31 +1,24 @@
 import { Command } from "commander";
-import path from "path";
-import { serve } from ".";
-import { Options } from "./model/cli-model";
+import 'reflect-metadata'
+import { errorLog } from "./log4js.js";
+import { apiServer } from "./api/index.js";
+import { loadConfig } from "./utils/config.js";
 
 
-
-async function loadConfig<T>(filepath: string) {
-    const fullpath = path.isAbsolute(filepath)
-        ? filepath
-        : path.join(process.cwd(), filepath);
-    const ret = (await import(fullpath)) as T;
-    return ret;
-}
 
 function run() {
     const program = new Command().option('-f, --file <file>');
 
-    program.action(async () => {
+    program.command('api').action(async () => {
         try {
             let { file } = program.opts()
             file = file || './etc/config.js'
-            const config = await loadConfig<Options>(file)
-            await serve(config)
-        } catch(error){
-            console.log(error)
+            const { options } = await loadConfig(file)
+            await apiServer(options)
+        } catch (error) {
+            errorLog.error(error)
             process.exit(1)
-        } finally{}
+        } finally { }
     })
 
     program.parse(process.argv)
