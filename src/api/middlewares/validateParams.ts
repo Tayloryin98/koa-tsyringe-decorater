@@ -11,7 +11,7 @@ import Joi from 'joi'
 export function genValidateParams(method: string, scheme: Joi.Schema) {
     return async (ctx: Context, next: () => Promise<any>) => {
         let data: any
-        if (method === 'GET') {
+        if (method === 'get' || method ==='delete') {
             data = ctx.request.query
         } else {
             data = ctx.request.body

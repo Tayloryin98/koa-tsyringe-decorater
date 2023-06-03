@@ -1,5 +1,6 @@
 import Joi from 'joi'
 import { genValidateParams } from '../middlewares/validateParams.js'
+import { Route } from '../../model/router.js'
 
 /**
  * 单个路由添加数据校验中间件
@@ -8,8 +9,8 @@ import { genValidateParams } from '../middlewares/validateParams.js'
  */
 export function validate(scheme:Joi.Schema){
     return function(target:any, key:string, descriptor:PropertyDescriptor){
-        const method = Reflect.getMetadata('method', target, key)
-        const validateParamsMiddleware = genValidateParams(method,scheme)
+        const routes = Reflect.getMetadata('routes', target, key) as Route[]
+        const validateParamsMiddleware = genValidateParams(routes[0].method,scheme)
         const middlewares = Reflect.getMetadata('middlewares', target, key) || []
         middlewares.push(validateParamsMiddleware)
         Reflect.defineMetadata('middlewares', middlewares, target, key)

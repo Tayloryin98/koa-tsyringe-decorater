@@ -1,1 +1,14 @@
-version: '3'
+version: "3.7"
+services:
+  server:
+    image: node:16-buster
+    restart: always
+    ports:
+      - 23519:23519
+    volumes:
+      - ./app:/dist
+    working_dir: /dist
+    command:
+      - node
+      - lib/cli.js
+      - api

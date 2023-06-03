@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "rm-rf lib && tsc",
     "start": "node lib/cli.js api",
     "commit": "git add . && git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",

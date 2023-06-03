@@ -2,13 +2,16 @@
 
 set -e
 
-rm -rf docker/app
-rm -rf deploy.tar.gz
-mkdir docker/app
 npm run build
+
+rm -rf docker/app/lib
+rm -rf docker/deploy.tar.gz
+mkdir docker/app/lib
 cp -r lib docker/app/
-cp -r etc docker/app/
 cp .npmrc docker/app/
 cp package.json docker/app/
 cp package-lock.json  docker/app/
-tar -zcvf deploy.tar.gz docker
+
+cd docker
+
+tar -zcvf deploy.tar.gz app/ docker-compose.yml install.sh 
